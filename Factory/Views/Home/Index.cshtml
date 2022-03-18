@@ -3,5 +3,25 @@
 }
 
 <h1>Factory Management System.</h1>
-<p>@Html.ActionLink("See all engineers", "Index", "Engineers")</p> <p>@Html.ActionLink("See all machines", "Index", "Machines")</p>
 
+<div class="row">
+  <div class="col-3">
+    <h2>Engineers</h2>
+    <ul>
+    @foreach (var Engineer in ViewBag.Engineers)
+    {
+      <li>@Html.ActionLink($"{Engineer.Description}", "Details", "Engineers", new { id = Engineer.EngineerId })</li>
+    }
+    </ul>
+  </div>
+
+  <div class="col-3">
+    <h2>Machines</h2>
+    <ul>
+      @foreach(var Machine in ViewBag.Machines)
+      {
+        <li>@Html.ActionLink($"{Machine.Name}", "Details", "Machines", new { id = Machine.MachineId })</li>
+      }
+    </ul>
+  </div>
+</div>
